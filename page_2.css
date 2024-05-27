@@ -1,0 +1,84 @@
+body {
+  margin: 0;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+}
+
+svg-container,
+svg {
+  padding-right: 15em;
+  width: 150%;
+  animation: fadein 1s linear forwards;
+  text-align: center;
+  fill: rgb(222, 222, 222);
+  font-size: 15pt;
+  font-family: "Black Ops One", system-ui;
+  animation: expand 3.5s linear forwards;
+}
+
+
+
+@keyframes fadein {
+  from {
+    opacity: 20%;
+  }
+
+  to {
+    opacity: 100%;
+  }
+}
+
+text {
+  fill: rgb(144, 144, 144);
+  font-size: 10pt;
+  line-height: 2.1;
+  letter-spacing: 0.1em;
+  word-spacing: 0.2em;
+  font-weight: 100;
+  animation: movePath 0.1s linear infinite;
+}
+
+text:hover {
+  animation: select 0.1s linear forwards;
+}
+
+
+
+
+@keyframes select {
+  from {
+    fill: rgb(144, 144, 144);
+    font-size: 10pt;
+  }
+
+  to {
+    fill: rgb(217, 217, 217);
+    font-size: 10.2pt;
+  }
+}
+
+
+@keyframes movePath {
+  from {
+    startOffset: 100%;
+  }
+
+  to {
+    startOffset: 0;
+  }
+}
+
+
+
+@keyframes expand {
+  from {
+    width: 150%;
+  }
+
+  to {
+    width: 500%;
+  }
+}

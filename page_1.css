@@ -1,0 +1,39 @@
+body {
+  margin: 0;
+  overflow: hidden;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+svg {
+  width: 18%;
+  height: auto;
+  stroke-dasharray: 2000;
+  stroke-dashoffset: 2000;
+  stroke: #ffffff;
+  fill: rgb(76, 76, 76);
+  animation: draw 6s linear forwards, colorChange 4s linear forwards;
+  stroke-linecap: round;
+  animation-direction: alternate;
+  stroke-miterlimit: 10;
+  stroke-width: 2px;
+
+}
+
+@keyframes draw {
+  to {
+    stroke-dasharray: 1000 1000 1000;
+    stroke-dashoffset: 4000;
+    stroke: #000000da;
+  }
+}
+
+@keyframes colorChange {
+  to {
+    stroke-linecap: round;
+    fill: #000000da;
+  }
+}

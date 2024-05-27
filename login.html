@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- 페이지 제목 설정 -->
+  <title>Yourself: Text Your Ideology</title>
+  <!-- 문자 인코딩을 UTF-8로 설정 -->
+  <meta charset="UTF-8">
+  <!-- Internet Explorer 호환성 설정 -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- 뷰포트 설정으로 모바일 기기에서도 잘 보이게 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- 외부 CSS 파일 로드: Bootstrap 및 Unicons 아이콘 -->
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css'>
+  <link rel='stylesheet' href='https://unicons.iconscout.com/release/v2.1.9/css/unicons.css'>
+  <!-- 사용자 정의 스타일시트 로드 -->
+  <link rel="stylesheet" href="./style.css">
+  <!-- 커서 스타일 추가 -->
+  <style>
+      body, html {
+          cursor: none; /* 기본 커서 숨기기 */
+      }
+
+      .custom-cursor {
+          position: fixed;
+          width: 10px;
+          height: 10px;
+          background-color: rgb(189, 189, 189);
+          border-radius: 50%;
+          pointer-events: none; /* 커서 요소가 클릭 이벤트에 반응하지 않도록 설정 */
+          z-index: 9999; /* 다른 요소 위에 표시 */
+          transform: translate(-50%, -50%); /* 커서 중앙에 맞춤 */
+      }
+  </style>
+</head>
+
+<body>
+  <!-- 커스텀 커서 요소 -->
+  <div class="custom-cursor" id="customCursor"></div>
+
+  <!-- 메인 섹션 -->
+  <div class="section">
+    <div class="container">
+      <div class="row full-height justify-content-center">
+        <div class="col-12 text-center align-self-center py-5">
+          <div class="section pb-5 pt-5 pt-sm-2 text-center">
+            <!-- 로그인과 회원가입 전환을 위한 체크박스 -->
+            <p class="mb-4 pb-3" style="font-size: 15pt;color: black;">&ensp;Log In &ensp; &ensp; Sign Up</p>
+            <input class="checkbox" type="checkbox" id="reg-log" name="reg-log"/>
+            <label for="reg-log"></label>
+
+            <div class="card-3d-wrap mx-auto">
+              <div class="card-3d-wrapper">
+                <!-- 로그인 카드 앞면 -->
+                <div class="card-front">
+                  <div class="center-wrap">
+                    <div class="section text-center">
+                      <h4 class="mb-4 pb-3">Log In</h4>
+                      <!-- 로그인 폼 -->
+                      <div class="form-group">
+                        <input type="email" name="logemail" class="form-style" placeholder="Your ID" id="logemail" autocomplete="off">
+                        <i class="input-icon uil uil-at"></i>
+                      </div>
+                      <div class="form-group mt-2">
+                        <input type="password" name="logpass" class="form-style" placeholder="Your Password" id="logpass" autocomplete="off">
+                        <i class="input-icon uil uil-lock-alt"></i>
+                      </div>
+                      <!-- 제출 버튼 -->
+                      <button class="btn mt-4" onclick="redirectToSVGPage()" style="cursor: none">submit</button>
+                    </div>
+                  </div>
+                </div>
+                <!-- 회원가입 카드 뒷면 -->
+                <div class="card-back">
+                  <div class="center-wrap" style="top: 15%;">
+                    <div class="section text-center">
+                      <h4 class="mb-4 pb-3">Sign Up</h4>
+                      <!-- 회원가입 폼 -->
+                      <div class="form-group">
+                        <input id="user-ideal" type="text" name="logname" class="form-style" placeholder="Your Ideology" autocomplete="off">
+                        <i class="input-icon uil uil-user"></i>
+                      </div>
+                      <div class="form-group mt-2">
+                        <input type="email" name="logemail" class="form-style" placeholder="Your ID" autocomplete="off">
+                        <i class="input-icon uil uil-at"></i>
+                      </div>
+                      <div class="form-group mt-2">
+                        <input type="password" name="logpass" class="form-style" placeholder="Your Password" autocomplete="off">
+                        <i class="input-icon uil uil-lock-alt"></i>
+                      </div>
+                      <!-- 제출 버튼 -->
+                      <button class="btn mt-4" onclick="redirectToSVGPage()" style="cursor: none">submit</button>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 폼 제출 시 리다이렉트 자바스크립트 -->
+  <script>
+    function redirectToSVGPage() {
+      const userInput = encodeURIComponent(document.getElementById('user-ideal').value);
+      window.location.href = `main.html?userInput=${userInput}`;
+    }
+
+    const customCursor = document.getElementById('customCursor');
+
+    document.addEventListener('mousemove', (e) => {
+        customCursor.style.left = `${e.clientX}px`;
+        customCursor.style.top = `${e.clientY}px`;
+    });
+  </script>
+</body>
+
+</html>
